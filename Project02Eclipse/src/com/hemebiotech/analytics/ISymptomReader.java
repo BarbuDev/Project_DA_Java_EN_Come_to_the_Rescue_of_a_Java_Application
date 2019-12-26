@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Anything that will read symptom data from a source
@@ -8,13 +8,19 @@ import java.util.List;
  * that may contain many duplications
  * 
  * The implementation does not need to order the list
- * 
+ *
+ * @author BarbuDev
+ * @version 1.0
+ *
  */
 public interface ISymptomReader {
 	/**
 	 * If no data is available, return an empty List
-	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
+	 *
+	 * @param fileName name of file to read
+	 * @throws java.io.FileNotFoundException
+	 *
+	 * @return a list of all Symptoms sorted and counted obtained from a data source
 	 */
-	List<String> GetSymptoms ();
+	Map <String,String> getSymptoms (String fileName) throws Exception;
 }
